@@ -1,9 +1,9 @@
 ---
-const { username, profilePicture, description } = Astro.props;
+const { name, description, profilePicture } = Astro.props;
 ---
 
 <div class="profile-card">
-  <img src={profilePicture} alt={`Foto de ${username}`} class="profile-card__image" />
-  <h1 class="profile-card__name">{username}</h1>
-  <p class="profile-card__description">{description}</p>
+  <img src={profilePicture} alt={name} class="profile-card__image" />
+  <h1>{name}</h1>
+  <p>{description}</p>
 </div>

@@ -1,11 +1,13 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import '@styles/index.css'
 ---
-<BaseLayout title="Índice de Usuarios">
-  <h1>Bienvenido al índice de usuarios</h1>
+
+<BaseLayout>
+  <h1>Selecciona un Usuario</h1>
   <ul>
-    <li><a href="/juanflores">Juan Flores</a></li>
-    <li><a href="/otrousuario1">Otro Usuario 1</a></li>
-    <li><a href="/otrousuario2">Otro Usuario 2</a></li>
+    <li><a href="/juan_flores">Juan_Flores</a></li>
+    <li><a href="/usuario2">Usuario 2</a></li>
+    <li><a href="/usuario3">Usuario 3</a></li>
   </ul>
 </BaseLayout>

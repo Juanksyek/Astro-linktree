@@ -3,9 +3,13 @@ const { socialLinks } = Astro.props;
 ---
 
 <div class="social-links">
-  {socialLinks.map(social => (
-    <a href={social.url} target="_blank" class="social-links__icon">
-      <img src={social.icon} alt={social.name} />
-    </a>
-  ))}
+  {socialLinks ? (
+    socialLinks.map((social: { url: string; icon: string; name: string; }) => (
+      <a href={social.url} target="_blank" class="social-links__icon">
+        <img src={social.icon} alt={social.name} />
+      </a>
+    ))
+  ) : (
+    <p>No social links available</p>
+  )}
 </div>

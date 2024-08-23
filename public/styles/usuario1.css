@@ -1,0 +1,70 @@
+/* Estilos para la tarjeta de perfil */
+.profile-card {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-card__image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .profile-card__name {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .profile-card__description {
+    font-size: 1em;
+    color: #666;
+  }
+  
+  /* Estilos para los enlaces sociales */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .social-links__icon {
+    margin: 0 10px;
+    display: inline-block;
+  }
+  
+  .social-links__icon img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+  }
+  
+  .social-links__icon:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Estilos para los botones de enlaces */
+  .link-buttons {
+    margin-top: 30px;
+  }
+  
+  .link-button {
+    display: block;
+    padding: 12px;
+    margin: 12px 0;
+    background-color: #b05048;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+  }
+  
+  .link-button:hover {
+    background-color: #9333ea;
+  }

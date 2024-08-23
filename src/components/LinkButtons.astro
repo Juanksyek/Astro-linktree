@@ -13,5 +13,5 @@ const { links } = Astro.props;
     allowfullscreen=""
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     loading="lazy"></iframe>
-  {links.map((link) => <LinkButton href={link.url} text={link.title} />)}
+  {links.map((link: { url: any; title: any; }) => <LinkButton href={link.url} text={link.title} />)}
 </div>
