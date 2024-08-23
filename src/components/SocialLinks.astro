@@ -1,0 +1,11 @@
+---
+const { socialLinks } = Astro.props;
+---
+
+<div class="social-links">
+  {socialLinks.map(social => (
+    <a href={social.url} target="_blank" class="social-links__icon">
+      <img src={social.icon} alt={social.name} />
+    </a>
+  ))}
+</div>

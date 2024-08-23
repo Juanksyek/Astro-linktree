@@ -1,0 +1,15 @@
+[
+    {
+      "username": "juanflores",
+      "name": "Juan Flores",
+      "bio": "Desarrollador web",
+      "image": "/images/juanflores.jpg",
+      "socialLinks": [
+        { "platform": "Twitter", "url": "https://twitter.com/juanflores" },
+        { "platform": "LinkedIn", "url": "https://linkedin.com/in/juanflores" },
+        { "platform": "GitHub", "url": "https://github.com/juanflores" },
+        { "platform": "Instagram", "url": "https://www.instagram.com/juanflores" }
+      ]
+    }
+  ]
+  

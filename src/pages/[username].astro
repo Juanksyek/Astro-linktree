@@ -1,0 +1,54 @@
+---
+import Layout from '@layouts/BaseLayout.astro';
+import Profile from '@components/Profile.astro';
+import SocialLinks from '@components/SocialLinks.astro';
+import { profiles } from '@data/profiles';
+
+// Obtener el username desde los parámetros de la ruta
+const { profile: username } = Astro.params;
+
+console.log('Astro.params:', Astro.params);
+console.log('username:', username);
+
+// Asegurarse de que username sea una cadena de texto
+if (typeof username !== 'string') {
+  throw new Error(`Expected "username" to be a string, but got ${typeof username}`);
+}
+
+// Buscar el perfil correspondiente
+const profile = profiles.find((p) => p.username === username);
+
+console.log('profile:', profile);
+
+if (!profile) {
+  throw new Error(`Perfil no encontrado: ${username}`);
+}
+
+// Definir las rutas estáticas
+export function getStaticPaths() {
+  return profiles.map((p) => ({
+    params: { profile: p.username }
+  }));
+}
+
+// Definir los props estáticos con tipos
+export function getStaticProps({ params }: { params: { profile: string } }) {
+  console.log('getStaticProps params:', params);
+  const profile = profiles.find((p) => p.username === params.profile);
+  if (!profile) {
+    throw new Error(`Perfil no encontrado: ${params.profile}`);
+  }
+  return {
+    props: { profile },
+  };
+}
+
+---
+<Layout title={`Perfil de ${profile.username}`}>
+  <Profile 
+    username={profile.username} 
+    profilePicture={profile.image} 
+    description={profile.bio} 
+  />
+  <SocialLinks links={profile.socialLinks} />
+</Layout>
