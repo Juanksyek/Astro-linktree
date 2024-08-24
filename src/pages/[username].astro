@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   return [
     { params: { username: 'juan_flores' } },
     { params: { username: 'dan_reynolds' } },
-    { params: { username: 'usuario3' } },
+    { params: { username: 'cyberpunk_2077' } },
   ];
 }
 
@@ -67,11 +67,23 @@ const profiles: Record<string, ProfileData> = {
     iframeSrc: '',
     iframeSrc2: 'https://open.spotify.com/embed/album/7EPrkhjTBrwAV8yAKCmY0Y?utm_source=generator',
   },
-  usuario3: {
-    name: 'Usuario 3',
-    description: 'Este es el perfil del Usuario 3.',
-    profilePicture: '/images/usuario3.jpg',
+  cyberpunk_2077: {
+    name: '@Cyberpunk 2077',
+    description: 'Welcome to the New United States, chum',
+    profilePicture: '/images/cyberpunk.webp',
     style: '/styles/usuario3.css',
+    links: [
+      { url: 'https://udiscover.mx/collections/imagine-dragons', title: 'Shop' },
+      { url: 'https://open.spotify.com/intl-es/album/7EPrkhjTBrwAV8yAKCmY0Y?si=319IZVxvSiWpz79krnrEEQ', title: 'Check the new album!' },
+      { url: 'https://youtu.be/jvl1xbijjAI?si=aJoQG6b_qZLXiJxk', title: 'Look awesome cover' },
+      { url: 'https://open.spotify.com/intl-es/track/5hKE4hbAVMP38XWjRlXZPO?si=c718ea0ff3d34258', title: 'Masterpice from the new album' },
+    ],
+    socialLinks: [
+      { url: 'https://open.spotify.com/intl-es/artist/3k3gbUT7bF0jYmFmAKBQtU?si=MER9_0oTQRarWB-n12jBkg', icon: '/svg/spotify.svg', name: 'Twitter' },
+      { url: 'https://www.youtube.com/@ImagineDragons', icon: '/svg/youtube.svg', name: 'LinkedIn' },
+      { url: 'https://x.com/DanReynolds', icon: '/svg/x.svg', name: 'GitHub' },
+      { url: 'https://www.instagram.com/danreynolds/?hl=es', icon: '/svg/instagram.svg', name: 'Instagram' },
+    ],
     iframeSrc: '',
     iframeSrc2: '',
   },
