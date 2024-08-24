@@ -3,11 +3,12 @@ import Profile from "@components/Profile.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SocialLinks from "@components/SocialLinks.astro";
 import LinkButtons from "@components/LinkButtons.astro";
+import ShareButton from "@components/ShareButton.astro";
 
 export async function getStaticPaths() {
   return [
     { params: { username: 'juan_flores' } },
-    { params: { username: 'usuario2' } },
+    { params: { username: 'dan_reynolds' } },
     { params: { username: 'usuario3' } },
   ];
 }
@@ -21,6 +22,8 @@ type ProfileData = {
   socialLinks?: { url: string; icon: string; name: string }[];
   links?: { url: string; title: string }[];
   style: string;
+  iframeSrc: string;
+  iframeSrc2: string
 };
 
 const profiles: Record<string, ProfileData> = {
@@ -37,21 +40,40 @@ const profiles: Record<string, ProfileData> = {
     ],
     links: [
       { url: 'https://juanflores-portafolio.netlify.app/', title: 'Mi WebSite' },
-      { url: 'https://youtu.be/QjTeCG7_guM?si=nsLIT_7yAs84nAJ0', title: 'Like a Villain?' },
-      { url: 'https://portfolio.com', title: 'Chek this playlist on Spotify' },
+      { url: 'https://youtu.be/Aibxit_PpAg?si=HDgCoklDTwOMk8Dv', title: 'Like a Villain?' },
+      { url: 'https://open.spotify.com/playlist/0F9NeDG86JHVLwIb3y0DEk?si=c24146b1ffda4aaf', title: 'Chek this playlist on Spotify' },
+      { url: 'https://www.notion.so/eb02d6323c134c55a05c5ca1e8ee3d18?v=f8828d071c9349a596a6a4f66e3fd5b6&pvs=4', title: 'My movies list in notion' },
     ],
+    iframeSrc: 'https://open.spotify.com/embed/playlist/43mnKzy2LaOV1q6LhsJERY?utm_source=generator',
+    iframeSrc2: '',
   },
-  usuario2: {
-    name: 'Usuario 2',
-    description: 'Este es el perfil del Usuario 2.',
-    profilePicture: '/images/usuario2.jpg',
+  dan_reynolds: {
+    name: '@DanReynolds',
+    description: 'Hello there, im Dan Reynolds from Imagine Dragons',
+    profilePicture: '/images/danreynolds.webp',
     style: '/styles/usuario2.css',
+    socialLinks: [
+      { url: 'https://open.spotify.com/intl-es/artist/3k3gbUT7bF0jYmFmAKBQtU?si=MER9_0oTQRarWB-n12jBkg', icon: '/svg/spotify.svg', name: 'Twitter' },
+      { url: 'https://www.youtube.com/@ImagineDragons', icon: '/svg/youtube.svg', name: 'LinkedIn' },
+      { url: 'https://x.com/DanReynolds', icon: '/svg/x.svg', name: 'GitHub' },
+      { url: 'https://www.instagram.com/danreynolds/?hl=es', icon: '/svg/instagram.svg', name: 'Instagram' },
+    ],
+    links: [
+      { url: 'https://udiscover.mx/collections/imagine-dragons', title: 'Shop' },
+      { url: 'https://open.spotify.com/intl-es/album/7EPrkhjTBrwAV8yAKCmY0Y?si=319IZVxvSiWpz79krnrEEQ', title: 'Check the new album!' },
+      { url: 'https://youtu.be/jvl1xbijjAI?si=aJoQG6b_qZLXiJxk', title: 'Look awesome cover' },
+      { url: 'https://open.spotify.com/intl-es/track/5hKE4hbAVMP38XWjRlXZPO?si=c718ea0ff3d34258', title: 'Masterpice from the new album' },
+    ],
+    iframeSrc: '',
+    iframeSrc2: 'https://open.spotify.com/embed/album/7EPrkhjTBrwAV8yAKCmY0Y?utm_source=generator',
   },
   usuario3: {
     name: 'Usuario 3',
     description: 'Este es el perfil del Usuario 3.',
     profilePicture: '/images/usuario3.jpg',
     style: '/styles/usuario3.css',
+    iframeSrc: '',
+    iframeSrc2: '',
   },
 };
 
@@ -67,7 +89,31 @@ if (!profile) {
 </head>
 
 <BaseLayout>
+  <ShareButton />
   <Profile {...profile} />
   <SocialLinks socialLinks={profile.socialLinks} />
-  <LinkButtons links={profile.links}/>
+  {profile.iframeSrc && (
+    <iframe
+      style="border-radius:12px"
+      src={profile.iframeSrc}
+      width="100%"
+      height="152"
+      frameborder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"></iframe>
+  )}
+  {profile.iframeSrc2 && (
+    <iframe 
+      style="border-radius:12px" 
+      src={profile.iframeSrc2} 
+      width="100%" 
+      height="152" 
+      frameborder="0" 
+      allowfullscreen="" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  )}
+  <LinkButtons links={profile.links} />
 </BaseLayout>

@@ -1,0 +1,51 @@
+---
+const { username } = Astro.params;
+//Usar para desarrollo
+const profileUrl = `http://localhost:4321/${username}`;
+//Usar para produccion
+//const profileUrl = `https://LinkTree-Profiles.netlify.app/${username}`;
+---
+<div class="share">
+  <a href="#" onclick="openModal()">
+    <img src="svg/share-android.svg" alt="Share" />
+  </a>
+</div>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">x</span>
+    <span>Copy link :D</span><br>
+    <input type="text" value={profileUrl} id="profileUrl" readonly />
+    <button onclick="copyToClipboard()"><p>Copy</p></button>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    const modal = document.getElementById("myModal");
+    if (modal) {
+      modal.style.display = "block";
+    }
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("myModal");
+    if (modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  function copyToClipboard() {
+    const copyText = document.getElementById("profileUrl") as HTMLInputElement;
+    if (copyText) {
+      copyText.select();
+      document.execCommand("copy");
+      alert("Enlace copiado: " + copyText.value);
+    }
+  }
+
+  // Declarar las funciones en el objeto window
+  (window as any).openModal = openModal;
+  (window as any).closeModal = closeModal;
+  (window as any).copyToClipboard = copyToClipboard;
+</script>

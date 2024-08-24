@@ -1,18 +1,25 @@
 /* Estilos para la tarjeta de perfil */
-body {
-  font-family: Arial, sans-serif;
-  background: rgb(238, 174, 202);
-  background: linear-gradient(
-    180deg,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  );
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+@-webkit-keyframes gradientBackgroundAnimated {
+  0% {
+    background-position: 7% 0%;
+  }
+  50% {
+    background-position: 94% 100%;
+  }
+  100% {
+    background-position: 7% 0%;
+  }
+}
+@keyframes gradientBackgroundAnimated {
+  0% {
+    background-position: 7% 0%;
+  }
+  50% {
+    background-position: 94% 100%;
+  }
+  100% {
+    background-position: 7% 0%;
+  }
 }
 ::-webkit-scrollbar {
   width: 12px;
@@ -29,15 +36,36 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8745ff;
+  background: #d67b81;
 }
 
 body {
   scrollbar-width: thin;
   scrollbar-color: #888 #f1f1f1;
 }
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(322deg, #d67b81, #7aa89b);
+  background-size: 400% 400%;
+  -webkit-animation: gradientBackgroundAnimated 15s ease infinite;
+  animation: gradientBackgroundAnimated 15s ease infinite;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 iframe {
   margin-top: 30px;
+}
+h1 {
+  margin: 4%;
+  color: #fff;
+}
+p {
+  margin: 4%;
+  color: #fff;
 }
 .profile-card {
   text-align: center;
@@ -76,6 +104,7 @@ iframe {
 }
 
 .social-links__icon img {
+  filter: grayscale(100%) brightness(0) invert(1);
   width: 30px;
   height: 30px;
   transition: transform 0.3s;
@@ -94,22 +123,26 @@ iframe {
   display: block;
   padding: 12px;
   margin: 12px 0;
-  background-color: #b05048;
+  background: linear-gradient(322deg, #d67b81, #7aa89b);
   color: white;
   text-align: center;
   text-decoration: none;
   border-radius: 30px;
-  transition: background-color 0.3s;
+  transition: transform 0.3s;
 }
 
 .link-button:hover {
-  background-color: #9333ea;
+  transform: scale(1.1);
 }
 
 .share {
   display: flex;
   justify-content: end;
   transition: transform 0.3s;
+}
+
+.share img {
+  filter: grayscale(100%) brightness(0) invert(1);
 }
 
 .modal {
@@ -125,33 +158,33 @@ iframe {
   background-color: rgba(0, 0, 0, 0.4);
 }
 .modal-content {
-  background-color: #fefefe;
+  background: linear-gradient(322deg, #d67b81, #7aa89b);
   margin: 20% auto;
   padding: 20px;
-  border: 1px solid #888;
   width: 40%;
   height: 12%;
   border-radius: 20px;
+  color: #fff;
 }
 .modal-content input {
+  background: transparent;
   margin: 5px;
   width: 50%;
   padding: 2%;
-  border: 1px solid #888;
+  border: 1px solid #fff;
   border-radius: 10px;
 }
 .modal-content button {
+  background: transparent;
   padding: 1%;
   width: 15%;
-  border: 1px;
+  border: 1px solid #fff;
   border-radius: 10px;
 }
 .modal-content button:hover {
   color: goldenrod;
   cursor: pointer;
-  transition:
-    color 0.5s ease-in,
-    color 0.5s ease-out;
+  transition: transform 0.5s;
 }
 .close {
   color: #aaa;
@@ -164,10 +197,8 @@ iframe {
   color: red;
   text-decoration: none;
   cursor: pointer;
-  transition:
-    color 0.5s ease-in,
-    color 0.5s ease-out;
+  transition: transform 0.5s;
 }
-.share:hover img {
+.modal-content button:hover {
   transform: scale(1.1);
 }

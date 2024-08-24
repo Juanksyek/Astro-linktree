@@ -9,14 +9,8 @@ a {
   margin: 0;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: rgb(238,174,202);
-  background: linear-gradient(180deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+main {
+  padding: 5%;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
