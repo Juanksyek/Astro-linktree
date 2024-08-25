@@ -1,4 +1,28 @@
-# Astro Starter Kit: Basics
+# Como ejecutar el proyecto
+- Para poder visualizar el proyecto, lo primero es instalar las dependecnias y paquetes de node utilizando `npm i` en la terminar dentro del proyecto.
+- Posterior a la instalación de los paquetes y recursos, hay que ejecutar el servidor utilizando `npm run dev` el cual abrira el servidor expuesto en el puerto `:4321`.
+- Como sonsecuente, una de las funciones se ve afectada por ejecutar en local:
+```
+---
+const { username } = Astro.params;
+//Usar para desarrollo
+//const profileUrl = `http://localhost:4321/${username}`;
+//Usar para produccion
+const profileUrl = `https://linktree-profiles.netlify.app/${username}`;
+---
+```
+Como se puede observar, las rutas para poder compartir los perfiles están destinadas por una constante, para hacer útil esta funcion, hay que ajustar según los requerimientos, por lo que por defecto está en produccion para que se pueda visualizar sin problemas en la URL.
+- Visualizacion en produccion:
+- El proyecto está desplegado en Netlify, por lo que está adaptado para que funcione sin problemas. Se puede consultar en la siguiente URl (https://linktree-profiles.netlify.app/juan_flores).
+Usuarios disponibles:
+- Es posible cambiar a los usuarios para explorar lo que contiene cada uno, como extra a estos perfiles, se pueden encontrar un par de perfiles cotilleando un poco la web:
+- /juan_flores
+- /dan_reynolds
+- /cyberpunk_2077
+- `linktree-profiles.netlify.app/`
+Espero se disfrute y sea de su agrado, ya que me divertí bastante realizandola. Saludos!
+
+## Astro Starter Kit: Basics
 
 ```sh
 npm create astro@latest -- --template basics
