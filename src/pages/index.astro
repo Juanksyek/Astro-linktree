@@ -1,13 +1,20 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import '@styles/index.css'
+import "@styles/index.css";
 ---
 
 <BaseLayout>
-  <h1>Selecciona un Usuario</h1>
-  <ul>
-    <li><a href="/juan_flores">Juan_Flores</a></li>
-    <li><a href="/usuario2">Usuario 2</a></li>
-    <li><a href="/usuario3">Usuario 3</a></li>
-  </ul>
+  <div class="full-screen-container">
+    <div class="info">
+      <h1>Welcome to the user selector</h1>
+      <p>It seems that you have found some not-so-secret secret information.</p>
+      <p>This page was made with Astro, TypeScript and a lot of Css, and docker for try the project :) <br>below you can find the users to explore, have fun and discover some secrets in the las user.</p>
+      <ul>
+        <li><a href="/juan_flores">juan_flores</a></li>
+        <li><a href="/dan_reynolds">dan_reynolds</a></li>
+        <li><a href="/cyberpunk_2077">cyberpunk_2077</a></li>
+        <li><a href="/who_is">who_is?</a></li>
+      </ul>
+    </div>
+  </div>
 </BaseLayout>
