@@ -10,6 +10,8 @@ export async function getStaticPaths() {
     { params: { username: 'juan_flores' } },
     { params: { username: 'dan_reynolds' } },
     { params: { username: 'cyberpunk_2077' } },
+    { params: { username: 'who_is'}},
+    { params: { username: 'access'}}
   ];
 }
 
@@ -87,6 +89,46 @@ const profiles: Record<string, ProfileData> = {
     iframeSrc: '',
     iframeSrc2: '',
   },
+  who_is: {
+    name: '@____?____',
+    description: 'How did you get here?',
+    profilePicture: '/svg/help-circle.svg',
+    style: '/styles/usuario4.css',
+    links: [
+      { url: '', title: '?' },
+      { url: '', title: '?' },
+      { url: '/access', title: '?' },
+      { url: '', title: '?' },
+    ],
+    socialLinks: [
+      { url: '', icon: '/svg/help-circle.svg', name: '?' },
+      { url: '', icon: '/svg/help-circle.svg', name: '?' },
+      { url: '', icon: '/svg/help-circle.svg', name: '?' },
+      { url: '', icon: '/svg/help-circle.svg', name: '?' },
+    ],
+    iframeSrc: '',
+    iframeSrc2: '',
+  },
+  access: {
+    name: 'Incredible, you find my secret',
+    description: 'maybe you need click any buttons... again',
+    profilePicture: '/svg/help-circle.svg',
+    style: '/styles/access.css',
+    links: [
+      { url: '', title: '?' },
+      { url: '', title: '?' },
+      { url: 'https://youtu.be/IBcUkTXAwbw?si=XutN33ky-xVPlUrj', title: '?' },
+      { url: '', title: '?' },
+    ],
+    socialLinks: [
+      { url: '', icon: '/svg/help-circle.svg', name: '?' },
+      { url: '', icon: '/svg/help-circle.svg', name: '?' },
+      { url: '', icon: '/svg/help-circle.svg', name: '?' },
+      { url: '', icon: '/svg/help-circle.svg', name: '?' },
+    ],
+    iframeSrc: '',
+    iframeSrc2: '',
+  },
 };
 
 const profile = profiles[username as string];
@@ -128,4 +170,10 @@ if (!profile) {
     </iframe>
   )}
   <LinkButtons links={profile.links} />
+  {username === 'who_is' && (
+    <video autoplay muted loop id="background-video">
+      <source src="/video/glitch-video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  )}
 </BaseLayout>
